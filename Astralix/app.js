@@ -1,3 +1,6 @@
+//Make sure you install all necessary modules using vs code terminal, which are express, path, swig,body-parser, and mongoose.
+//Also make sure that you are connected to Mongodb.
+
 const express = require("express");
 const path = require("path");
 const app = express();
