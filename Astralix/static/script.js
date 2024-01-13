@@ -20,21 +20,6 @@ const linkAction = () => {
 }
 navLink.forEach(link => link.addEventListener('click', linkAction));
 
-/* Swiper for council members */
-var swiper = new Swiper(".mySwiper", {
-    effect: "cube",
-    grabCursor: true,
-    cubeEffect: {
-      shadow: true,
-      slideShadows: true,
-      shadowOffset: 20,
-      shadowScale: 0.94,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-    },
-  });
-
 
 // back to top  
 document.addEventListener("DOMContentLoaded", function () {
@@ -60,14 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Navbar when scrolling
 
-// const blurHeader = () => {
-//   const header = document.querySelector('#header');
-//   this.scrollY >= 50 ? header.classList.add('blur-header') : header.classList.remove('blur-header')
-// }
-
-// window.onscroll = blurHeader();
-
-// let navbar = document.querySelector('.nav');
 const header = document.querySelector('#header');
 window.onscroll = function(){
   if (document.documentElement.scrollTop > 20){
@@ -76,4 +53,51 @@ window.onscroll = function(){
     header.classList.remove('blur-header');
   }
 }
+
+// Swiper
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  loop : "infinite",
+  breakpoints: {
+    "@0.00": {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    "@1.00": {
+      slidesPerView: 2,
+      spaceBetween: 40,
+    },
+    "@1.50": {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+  },
+});
   
+
+// Scroll reveal animation
+const sr = ScrollReveal({
+  origin:'top',
+  distance: '60px',
+  duration: 2000,
+  delay: 200,
+  reset: true, 
+})
+
+sr.reveal('#left-img', {origin: 'left'})
+sr.reveal('#right-img', {origin: 'right'})
+sr.reveal('.home-info', {origin: 'bottom'})
+sr.reveal('#about-left-img', {origin: 'left', opacity:1})
+sr.reveal('.about-right-content-container', {origin: 'right', opacity:1})
+sr.reveal('.council-title')
+sr.reveal('.council-p')
+sr.reveal('.swiper', {origin:"bottom"})
+sr.reveal('.contact-social', {origin:"left"})
+sr.reveal('.feedback', {origin:"right"})
+sr.reveal('.contact-links', {origin:"right"})
+sr.reveal('.contact-us', {origin:"left"})
