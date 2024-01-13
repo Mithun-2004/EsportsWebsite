@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Australix- Gaming Website</title>
-    <link rel="stylesheet" href="../static/style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> -->
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 
 <body>
@@ -83,7 +85,7 @@
                 <h1>but we are family.</h1>
             </div>
             <p class="council-p">Meet our members</p>
-            <div class="club-member-images">
+            <!-- <div class="club-member-images">
                 <div class="club-head-img">
                     <img src="../static/images/council/Gautam_Kumar_Mahar.png" class="club-head-img" />
                     <div class="member-info">
@@ -131,7 +133,45 @@
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
-            </div>
+            </div> -->
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="../static/images/council/Gautam_Kumar_Mahar.png" />
+                    <h1>Gautam Kumar Mahar</h1>
+                    <p>Astralix Head</p>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="../static/images/council/Atharva Shinde.jpg" />
+                    <h1>Atharva Shinde</h1>
+                    <p>Clash Royale Representative</p>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="../static/images/council/Siddharth_ Suryavanshi.jpg" />
+                    <h1>Siddharth Suryavanshi</h1>
+                    <p>Call of Duty Representative</p>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="../static/images/council/Vikas Kumar.jpg" />
+                    <h1>Vikas Kumar</h1>
+                    <p>Valorant Representative</p>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="../static/images/council/dummy-profile-pic.jpg" />
+                    <h1>Harsh Bhoir</h1>
+                    <p>BGMI Representative</p>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="../static/images/council/dummy-profile-pic.jpg" />
+                    <h1>Arun Kumar</h1>
+                    <p>Freefire Representative</p>
+                  </div>
+                </div>
+                <!-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> -->
+                <div class="swiper-pagination"></div>
+              </div>
         </section>
 
 
@@ -158,7 +198,7 @@
                                     <!-- <input type="submit" value="Submit Now">
                                     <input type="reset" value="Reset Now"> -->
                                     <button type="submit" class="ok-btns">Submit</button>
-                                    <button type="reset" class="ok-btns">Resest</button>
+                                    <button type="reset" class="ok-btns">Reset</button>
                                 </div>
                             </form>
                     </div>
@@ -200,10 +240,47 @@
 
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
     <script src="https://kit.fontawesome.com/a141dab8c6.js" crossorigin="anonymous"></script>
     <script src="../static/script.js"></script>
     <script src="../app.js"></script>
+      <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      loop : "infinite",
+    //   navigation: {
+    //     nextEl: ".swiper-button-next",
+    //     prevEl: ".swiper-button-prev",
+    //   },
+      breakpoints: {
+        "@0.00": {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        // "@0.75": {
+        //   slidesPerView: 2,
+        //   spaceBetween: 20,
+        // },
+        "@1.00": {
+          slidesPerView: 2,
+          spaceBetween: 40,
+        },
+        "@1.50": {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+      },
+    });
+    </script>
 
 </body>
 
