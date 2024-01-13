@@ -56,4 +56,24 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
+
+
+// Navbar when scrolling
+
+// const blurHeader = () => {
+//   const header = document.querySelector('#header');
+//   this.scrollY >= 50 ? header.classList.add('blur-header') : header.classList.remove('blur-header')
+// }
+
+// window.onscroll = blurHeader();
+
+// let navbar = document.querySelector('.nav');
+const header = document.querySelector('#header');
+window.onscroll = function(){
+  if (document.documentElement.scrollTop > 20){
+    header.classList.add('blur-header');
+  }else{
+    header.classList.remove('blur-header');
+  }
+}
   
