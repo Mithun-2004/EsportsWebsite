@@ -11,6 +11,7 @@
     box-sizing: border-box;
     font-family: 'Arvo', 'serif';
     text-decoration: none;
+    scroll-behavior: smooth;
 }
 ::selection{
     background-color: purple;
@@ -63,6 +64,7 @@ body {
     flex-direction: row;
     gap: 2.5rem;
 }
+
 
 /* Navigation menu for mobile devices */
 @media screen and (max-width : 620px) {
@@ -128,6 +130,19 @@ body {
     top: 0;
 }
 
+/* Blur header */
+.blur-header::after{
+    content : '';
+    position : absolute;
+    height : 100%;
+    width : 100%;
+    background-color : hsla(23, 12%, 4%, 0.2);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    top : 0;
+    left : 0;
+    z-index : -1;
+}
 
 
 /* Home section */
@@ -630,7 +645,7 @@ height: 400px;
 }
 .form-group input, .form-group textarea{
     background : hsla(23, 12%, 4%, 0.2);
-    backdrop-filter: blur(24px);
+    backdrop-filter: blur(32px);
     border : 2px solid white;
     outline : 0;
     font-size : 0.9rem;
