@@ -4,7 +4,9 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const port = 80;
+
+require("dotenv").config();
+
 
 app.use("/static", express.static("static"));
 app.use(express.urlencoded());
@@ -24,7 +26,7 @@ const mongoose = require('mongoose');
 main().catch(err => console.log(err));
 
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/astralix');
+    await mongoose.connect(process.env.DB_URL);
 };
 
 
@@ -58,6 +60,6 @@ app.post('/submit', (req, res) => {
 
 
 
-app.listen(port, () => {
-    console.log(`app started successfully on port ${port}`)
+app.listen(process.env.port, () => {
+    console.log(`app started successfully.`)
 });
