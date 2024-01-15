@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-
 // Navbar when scrolling
 
 const header = document.querySelector('#header');
@@ -101,3 +100,37 @@ sr.reveal('.contact-social', {origin:"left"})
 sr.reveal('.feedback', {origin:"right"})
 sr.reveal('.contact-links', {origin:"right"})
 sr.reveal('.contact-us', {origin:"left"})
+
+
+  /* Form */
+  const form = document.querySelector('#feedback-form');
+  const formName = document.querySelector('#name');
+  const formFeedback = document.querySelector('#feedback');
+  const feedbackInfo = document.querySelector('#feedback-info');
+  form.addEventListener('submit', async (e) => {
+    
+    e.preventDefault();
+
+    const response = await fetch('/submit', {
+      method : 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body : JSON.stringify({name: formName.value,
+              feedback: formFeedback.value
+            }),
+    })
+
+    const data = await response.json();
+    if (data.success){
+      feedbackInfo.innerText = data.message;
+      feedbackInfo.classList.remove('.wrong');
+      form.reset();
+    }else{
+      console.log(data.message);
+      feedbackInfo.innerText = data.message;
+      feedbackInfo.classList.add('.wrong');
+    }
+  })
+

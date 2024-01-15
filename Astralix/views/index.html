@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../static/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="..static/favicon-16x16.png">
-    <link rel="manifest" href="..static/site.webmanifest">
+
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> -->
     <!-- Link Swiper's CSS -->
@@ -139,19 +139,21 @@
                 <div class="contact-details">
                     <div class="feedback">
                             <div class="contact-title"><h1>Your feedback</h1></div>
-                            <form action="/submit" method="post">
+                            <!-- <form action="/submit" method="post"> -->
+                            <form id="feedback-form">
                                 <div class="form-group">
                                     <label for="name">Name </label>
-                                    <input type="text" name="name" id="name" placeholder="Enter your Name">
+                                    <input type="text" name="name" id="name" placeholder="Enter your Name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="feedback">Feedback </label>
-                                    <textarea name="feedback" id="feedback" cols="30" rows="5" placeholder="Enter your Feedback"></textarea>
+                                    <textarea name="feedback" id="feedback" cols="30" rows="5" placeholder="Enter your Feedback" required></textarea>
                                 </div>
                                 <div class="ok">
                                     <button type="submit" class="ok-btns">Submit</button>
                                     <button type="reset" class="ok-btns">Reset</button>
                                 </div>
+                                <p id="feedback-info"></p>
                             </form>
                     </div>
                     <div class="social-links contact-links">
@@ -196,7 +198,7 @@
     <script src="https://kit.fontawesome.com/a141dab8c6.js" crossorigin="anonymous"></script>
     <script src="../static/scrollreveal.min.js"></script>
     <script src="../static/script.js"></script>
-    <script src="../app.js"></script>
+    <!-- <script src="../app.js"></script> -->
 
 
 </body>

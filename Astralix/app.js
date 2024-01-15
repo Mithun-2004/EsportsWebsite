@@ -10,6 +10,7 @@ require("dotenv").config();
 
 app.use("/static", express.static("static"));
 app.use(express.urlencoded());
+app.use(express.json());
 
 var cons = require('consolidate');
 
@@ -48,11 +49,11 @@ const feedbackSchema = new mongoose.Schema({
 const feedback = mongoose.model('feedback', feedbackSchema);
 
 app.post('/submit', (req, res) => {
-    var myData = new feedback(req.body);
+    var myData = new feedback({ 'name': req.body.name, 'feedback': req.body.feedback});
     myData.save().then(() => {
-        res.render('index.html')
+        res.status(200).json({success:true, message:"Thank you for sharing the feedback."})
     }).catch(() => {
-        res.status(400).send("item not saved to the databse")
+        res.status(400).json({success:true, message:"Some error occured while saving the feedback. Please try again later."})
     })
 });
 
